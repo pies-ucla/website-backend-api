@@ -1,0 +1,28 @@
+SubjectId:
+  $ref: "SubjectId.yaml"
+UserId:
+  $ref: "UserId.yaml"
+User:
+  $ref: "User.yaml"
+BoardMember:
+  $ref: "BoardMember.yaml"
+EventId:
+  $ref: "EventId.yaml"
+Event:
+  $ref: "Event.yaml"
+AlumniId:
+  $ref: "AlumniId.yaml"
+Alumni:
+  $ref: "Alumni.yaml"
+Major:
+  $ref: "Major.yaml"
+ResourceId:
+  $ref: "ResourceId.yaml"
+ResourceType:
+  $ref: "ResourceType.yaml"
+Resource:
+  $ref: "Resource.yaml"
+FileUrl:
+  $ref: "FileUrl.yaml"
+Error:
+  $ref: "Error.yaml"

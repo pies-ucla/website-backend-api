@@ -1,0 +1,46 @@
+openapi: '3.0.0'
+info:
+  version: '0.1.0'
+  title: 'Website API'
+  description: 'API for the PIES at UCLA organization website.'
+  
+paths:
+  /users:
+    $ref: 'paths/Users.yaml'
+  /users/{userId}:
+    $ref: 'paths/User.yaml'
+  /events:
+    $ref: 'paths/Events.yaml'
+  /events/{eventId}:
+    $ref: 'paths/Event.yaml'
+  /board:
+    $ref: 'paths/BoardMember.yaml'
+  /board/{userId}:
+    $ref: 'paths/BoardMembers.yaml'
+  /alumni:
+    $ref: 'paths/Alumnus.yaml'
+  /alumni/{alumniId}:
+    $ref: 'paths/Alumni.yaml'
+  /resources:
+    $ref: 'paths/Resources.yaml'
+  /resources/{resourceId}:
+    $ref: 'paths/Resource.yaml'
+  
+components:
+  schemas:
+    $ref: "./schemas/index.yaml"
+  securitySchemes:
+    OAuth2_PIES_Website:
+      type: oauth2
+      description: This API uses OAuth2.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.temp.com/oauth2/authorize
+          tokenUrl: https://api.temp.com/oauth2/token
+          scopes:
+            userinfo.email: See your primary Google Account email address.
+            userinfo.profile: See your personal info, including any personal info you've made publicly available.
+security:
+  - OAuth2_PIES_Website:
+    - userinfo.email
+    - userinfo.profile

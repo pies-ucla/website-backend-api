@@ -1,0 +1,39 @@
+get:
+  summary: Read all PIES alumni members.
+  responses:
+    '200':
+      description: List corresponding to all PIES alumni members.
+      content:
+        application/json:
+          schema:
+            type: list
+            $ref: '#/components/schemas/Alumni'
+    500:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+post:
+  summary: Register a User corresponding to `userId` as a board member.
+  requestBody:
+    description: Required fields to create an Officer.
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/Officer'
+  responses:
+    '201':
+      description: Post has been created. No response body provided.
+    401:
+      description: User is not authenticated via OAuth2 in the web app.
+    403:
+      description: User is not authorized via OAuth2 in the web app. User must be an Officer.
+    404:
+      description: No User found corresponding to `userId`.
+    500:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'

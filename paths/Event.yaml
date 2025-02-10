@@ -1,0 +1,94 @@
+get:
+  parameters:
+  - name: eventId
+    description: The unique identifier of the Event.
+    in: path
+    required: true
+    schema:
+      $ref: "../schemas/index.yaml#/EventId"
+  summary: Read an Event.
+  responses:
+    '200':
+      description: The Event corresponding to the provided `eventId`
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/index.yaml#/Event"
+    404:
+      description: No event found for the provided `eventId`
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/index.yaml#/Error"
+    500:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/index.yaml#/Error"
+patch:
+  parameters:
+  - name: eventId
+    description: The unique identifier of the Event.
+    in: path
+    required: true
+    schema:
+      $ref: "../schemas/index.yaml#/EventId"
+  summary: Update an Event corresponding to `eventId` based on the fields provided.
+  requestBody:
+    description: Event fields to update.
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/index.yaml#/Event"
+  responses:
+    '200':
+      description: Event has been updated with the provided fields.
+    401:
+      description: User is not authenticated via OAuth2 in the web app.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/index.yaml#/Error"
+    403:
+      description: User is not authorized via OAuth2 in the web app. User must be a Board Member.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/index.yaml#/Error"
+    500:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/index.yaml#/Error"
+delete:
+  parameters:
+  - name: eventId
+    description: The unique identifier of the Event.
+    in: path
+    required: true
+    schema:
+      $ref: "../schemas/index.yaml#EventId"
+  summary: Delete an Event corresponding to `eventId`.
+  responses:
+    '200':
+      description: Event has been deleted.
+    401:
+      description: User is not authenticated via OAuth2 in the web app.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/index.yaml#/Error"
+    403:
+      description: User is not authorized via OAuth2 in the web app. User must be an Officer.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/index.yaml#/Error"
+    500:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/index.yaml#/Error"

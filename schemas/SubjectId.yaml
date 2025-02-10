@@ -1,0 +1,2 @@
+description: The unique Id of a Google Account signed in with OAuth2.
+type: integer

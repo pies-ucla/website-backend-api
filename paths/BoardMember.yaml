@@ -1,0 +1,16 @@
+get:
+  summary: Read all PIES board members.
+  responses:
+    '200':
+      description: List corresponding to all PIES board members.
+      content:
+        application/json:
+          schema:
+            type: list
+            $ref: '#/components/schemas/Officer'
+    500:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'

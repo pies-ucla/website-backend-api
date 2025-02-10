@@ -1,0 +1,32 @@
+type: object
+required:
+  - first_name
+  - last_name
+  - year
+  - major
+  - created_time
+properties:
+  id: # ID is automatically generated
+    $ref: '#/components/schemas/AlumniId'
+  first_name:
+    type: string
+  last_name:
+    type: string
+  year:
+    type: number
+  major:
+    type: array
+    items:
+      $ref: "./Major.yaml"
+  minor: 
+    type: array
+    items:
+      $ref: "./Major.yaml"
+  occupation:
+    type: string
+  pie:
+    type: string
+  created_time:
+    type: integer
+  updated_time:
+    type: integer

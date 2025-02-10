@@ -1,0 +1,48 @@
+get:
+  parameters:
+  - name: limit
+    in: query
+    schema:
+      type: integer
+    description: The number of items to return
+  - name: offset
+    in: query
+    schema:
+      type: integer
+    description: The number of items to skip before starting to collect the result set.
+  summary: Read all events.
+  responses:
+    '200':
+      description: List corresponding to all events, from most recently to least recently posted.
+      content:
+        application/json:
+          schema:
+            type: list
+            $ref: "../schemas/index.yaml#/Event"
+    500:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/index.yaml#/Error"
+post:
+  summary: Create an Event.
+  requestBody:
+    description: Required fields to create an Event.
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/index.yaml#/Event"
+  responses:
+    '201':
+      description: Post has been created. No response body provided.
+    401:
+      description: User is not authenticated via OAuth2 in the web app.
+    403:
+      description: User is not authorized via OAuth2 in the web app. User must be an Officer.
+    500:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/index.yaml#/Error"

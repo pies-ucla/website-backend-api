@@ -1,0 +1,71 @@
+type: array
+items:
+  type: string
+  enum:
+    # The College
+    - ba_art_history
+    - ba_asian_american_studies
+    - bs_atmospheric_oceanic_sciences
+    - bs_atmospheric_oceanic_sciences_mathematics
+    - bs_biochemistry
+    - bs_biology
+    - bs_biophysics
+    - ba_business_economics
+    - bs_chemistry_materials_science
+    - bs_climate_science
+    - bs_cognitive_science
+    - ba_communication
+    - ba_comparative_literature
+    - bs_computational_systems_biology
+    - bs_data_theory
+    - ba_disability_studies
+    - ba_earth_environmental_science
+    - bs_ecology_behavior_evolution
+    - ba_economics
+    - ba_english
+    - bs_environment_science
+    - ba_gender_studies
+    - bs_geology
+    - ba_history
+    - ba_human_biology_society
+    - bs_human_biology_society
+    - ba_labor_studies
+    - ba_linguistics
+    - ba_linguistics_computer_science
+    - bs_mathematics
+    - bs_mathematics_applied_science
+    - bs_mathematics_economics
+    - bs_mathematics_financial_actuarial
+    - bs_mimg
+    - bs_mcdb
+    - bs_neuroscience
+    - ba_physics
+    - bs_physics
+    - ba_physiological_science
+    - ba_political_science
+    - ba_psychology
+    - ba_sociology
+    # Samueli School of Engineering
+    - bs_aerospace_engineering
+    - bs_bioengineering
+    - bs_chemical_engineering
+    - bs_civil_engineering
+    - bs_computer_engineering
+    - bs_computer_science
+    - bs_computer_science_engineering
+    - bs_electrical_engineering
+    - bs_materials_engineering
+    - bs_mechanical_engineering
+    # Luskin School of Public Affairs
+    - ba_public_affairs
+    # School of Theater, Film, and Television
+    - ba_film_television
+    - ba_theater
+    - ba_conc_tft
+    # School of Education and Information Studies
+    - ba_education
+    # Fielding School of Public Health
+    - ba_public_health
+    - bs_public_health
+    # Other
+    - undeclared

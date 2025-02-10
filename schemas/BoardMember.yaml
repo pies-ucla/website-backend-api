@@ -1,0 +1,19 @@
+allOf: # Combines the User model and the inline model
+  - $ref: '#/components/schemas/User'
+  - type: object
+    required:
+      - officer_position
+      - description
+    properties:
+      year:
+        type: string
+      major:
+        type: string
+      pie:
+        type: string
+      linkedin:
+        type: string
+      resume:
+        $ref: './FileUrl.yaml'
+      profile_picture:
+        $ref: './ImageUrl.yaml'

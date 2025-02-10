@@ -1,0 +1,21 @@
+type: object
+required:
+  - title
+  - description
+  - created_by
+  - created_time
+properties:
+  id: # ID is automatically generated
+    $ref: './EventId.yaml'
+  title:
+    type: string
+  description:
+    type: string
+  created_by:
+    $ref: './UserId.yaml'
+  image:
+    $ref: './ImageUrl.yaml'
+  created_time:
+    type: integer
+  updated_time:
+    type: integer

@@ -1,0 +1,28 @@
+type: object
+required:
+  - resource_type
+  - title
+  - description
+  - deadline
+  - link
+  - created_by
+  - created_time
+properties:
+  id: # ID is automatically generated
+    $ref: './ResourceId.yaml'
+  resource_type:
+    $ref: './ResourceType.yaml'
+  title:
+    type: string
+  description:
+    type: string
+  deadline:
+    type: integer
+  link:
+    type: string
+  created_by:
+    $ref: './UserId.yaml'
+  created_time:
+    type: integer
+  updated_time:
+    type: integer

@@ -1,0 +1,78 @@
+get:
+  parameters:
+  - name: alumniId
+    description: The unique identifier of the Alumni.
+    in: path
+    required: true
+    schema:
+      $ref: '#/components/schemas/alumniId'
+  summary: Read an Alumni member.
+  responses:
+    '200':
+      description: The alumni member corresponding to the provided `alumniId`
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Alumni'
+    404:
+      description: No Alumni found for the provided `alumniId`.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    500:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+patch:
+  parameters:
+  - name: alumniId
+    description: The unique identifier of the Alumni.
+    in: path
+    required: true
+    schema:
+      $ref: '#/components/schemas/alumniId'
+  summary: Update an Alumni member corresponding to `alumniId` based on the fields provided.
+  requestBody:
+    description: Board member fields to update.
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/Alumni'
+  responses:
+    '200':
+      description: Alumni has been updated with the provided fields.
+    401:
+      description: User is not authenticated via OAuth2 in the web app.
+    403:
+      description: User is not authorized via OAuth2 in the web app. User must be an Officer.
+    500:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+delete:
+  parameters:
+  - name: alumniId
+    description: The unique identifier of the Alumni.
+    in: path
+    required: true
+    schema:
+      $ref: '#/components/schemas/alumniId'
+  summary: Delete an Alumni member corresponding to `alumniId`.
+  responses:
+    '200':
+      description: Alumni has been deleted.
+    401:
+      description: User is not authenticated via OAuth2 in the web app.
+    403:
+      description: User is not authorized via OAuth2 in the web app. User must be an Officer.
+    500:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
