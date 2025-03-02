@@ -35,8 +35,8 @@ components:
       description: This API uses OAuth2.
       flows:
         authorizationCode:
-          authorizationUrl: https://api.temp.com/oauth2/authorize
-          tokenUrl: https://api.temp.com/oauth2/token
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth # Full URL with all queries/parameters in "PIES Website: Authentication Flow" design doc
+          tokenUrl: https://oauth2.googleapis.com/token
           scopes:
             userinfo.email: See your primary Google Account email address.
             userinfo.profile: See your personal info, including any personal info you've made publicly available.
