@@ -7,13 +7,17 @@ get:
         application/json:
           schema:
             type: list
-            $ref: '../schemas/index.yaml#/User'
+            $ref: '#/components/schemas/User'
+    401:
+      description: User is not authenticated via OAuth2 in the web app.
+    403:
+      description: User is not authorized via OAuth2 in the web app. User must be a board member.
     500:
       description: Unexpected error
       content:
         application/json:
           schema:
-            $ref: '../schemas/index.yaml#/Error'
+            $ref: '#/components/schemas/Error'
 post:
   summary: Register a User.
   requestBody:
@@ -21,14 +25,14 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/index.yaml#/User'
+          $ref: '#/components/schemas/User'
   responses:
     '201':
       description: Post has been created. No response body provided.
     401:
       description: User is not authenticated via OAuth2 in the web app.
     403:
-      description: User is not authorized via OAuth2 in the web app. User must be an Officer.
+      description: User is not authorized via OAuth2 in the web app. User must be a board member.
     500:
       description: Unexpected error
       content:

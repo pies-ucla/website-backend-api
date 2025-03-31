@@ -14,8 +14,13 @@ properties:
   created_by:
     $ref: './UserId.yaml'
   image:
-    $ref: './ImageUrl.yaml'
+    type: string
+    format: uri
   created_time:
-    type: integer
+    type: string
+    format: date-time
+    description: Time of event creation. Logic should automatically update this field when creating an event.
   updated_time:
-    type: integer
+    type: string
+    format: date-time
+    description: Time of event update. Logic should automatically update this field when updating an event.

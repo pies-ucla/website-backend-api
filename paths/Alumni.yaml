@@ -5,7 +5,7 @@ get:
     in: path
     required: true
     schema:
-      $ref: '#/components/schemas/alumniId'
+      $ref: '#/components/schemas/AlumniId'
   summary: Read an Alumni member.
   responses:
     '200':
@@ -14,6 +14,8 @@ get:
         application/json:
           schema:
             $ref: '#/components/schemas/Alumni'
+    401:
+      description: User is not authenticated via OAuth2 in the web app.
     404:
       description: No Alumni found for the provided `alumniId`.
       content:
@@ -47,7 +49,7 @@ patch:
     401:
       description: User is not authenticated via OAuth2 in the web app.
     403:
-      description: User is not authorized via OAuth2 in the web app. User must be an Officer.
+      description: User is not authorized via OAuth2 in the web app. User must be a board member.
     500:
       description: Unexpected error
       content:
@@ -69,7 +71,7 @@ delete:
     401:
       description: User is not authenticated via OAuth2 in the web app.
     403:
-      description: User is not authorized via OAuth2 in the web app. User must be an Officer.
+      description: User is not authorized via OAuth2 in the web app. User must be a board member.
     500:
       description: Unexpected error
       content:

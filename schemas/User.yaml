@@ -14,13 +14,9 @@ properties:
   last_name:
     type: string
   major:
-    type: array
-    items:
-      $ref: "./Major.yaml"
+    $ref: "./Major.yaml"
   minor:
-    type: array
-    items:
-      $ref: "./Major.yaml"
+    $ref: "./Major.yaml"
   subject:
     $ref: './SubjectId.yaml'
   position:
@@ -29,6 +25,10 @@ properties:
       - general_member
       - board_member
   created_time:
-    type: integer
+    type: string
+    format: date-time
+    description: Time of resource creation. Logic should automatically update this field when creating a resource.
   updated_time:
-    type: integer
+    type: string
+    format: date-time
+    description: Time of resource update. Logic should automatically update this field when updating a resource.

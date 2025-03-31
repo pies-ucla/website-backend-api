@@ -6,6 +6,8 @@ User:
   $ref: "User.yaml"
 BoardMember:
   $ref: "BoardMember.yaml"
+BoardMemberPosition:
+  $ref: "BoardMemberPosition.yaml"
 EventId:
   $ref: "EventId.yaml"
 Event:
@@ -22,7 +24,5 @@ ResourceType:
   $ref: "ResourceType.yaml"
 Resource:
   $ref: "Resource.yaml"
-FileUrl:
-  $ref: "FileUrl.yaml"
 Error:
   $ref: "Error.yaml"

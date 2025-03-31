@@ -69,3 +69,5 @@ items:
     - bs_public_health
     # Other
     - undeclared
+  minItems: 0
+  maxItems: 2

@@ -2,18 +2,25 @@ allOf: # Combines the User model and the inline model
   - $ref: '#/components/schemas/User'
   - type: object
     required:
-      - officer_position
+      - board_member_position
       - description
     properties:
+      board_member_position:
+        $ref: './BoardMemberPosition.yaml'
+      description:
+        type: string
+        description: Description of board member.
       year:
         type: string
-      major:
-        type: string
+        description: Expected graduation year.
       pie:
         type: string
       linkedin:
         type: string
+        format: uri
       resume:
-        $ref: './FileUrl.yaml'
+        type: string
+        format: uri
       profile_picture:
-        $ref: './ImageUrl.yaml'
+        type: string
+        format: uri

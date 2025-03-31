@@ -5,7 +5,7 @@ get:
     in: path
     required: true
     schema:
-      $ref: "../schemas/index.yaml#/EventId"
+      $ref: "#/components/schemas/EventId"
   summary: Read an Event.
   responses:
     '200':
@@ -13,19 +13,19 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../schemas/index.yaml#/Event"
+            $ref: "#/components/schemas/Event"
     404:
       description: No event found for the provided `eventId`
       content:
         application/json:
           schema:
-            $ref: "../schemas/index.yaml#/Error"
+            $ref: "#/components/schemas/Error"
     500:
       description: Unexpected error
       content:
         application/json:
           schema:
-            $ref: "../schemas/index.yaml#/Error"
+            $ref: "#/components/schemas/Error"
 patch:
   parameters:
   - name: eventId
@@ -33,14 +33,14 @@ patch:
     in: path
     required: true
     schema:
-      $ref: "../schemas/index.yaml#/EventId"
+      $ref: "#/components/schemas/ElumniId"
   summary: Update an Event corresponding to `eventId` based on the fields provided.
   requestBody:
     description: Event fields to update.
     content:
       application/json:
         schema:
-          $ref: "../schemas/index.yaml#/Event"
+          $ref: "#/components/schemas/Event"
   responses:
     '200':
       description: Event has been updated with the provided fields.
@@ -49,19 +49,19 @@ patch:
       content:
         application/json:
           schema:
-            $ref: "../schemas/index.yaml#/Error"
+            $ref: "#/components/schemas/Error"
     403:
       description: User is not authorized via OAuth2 in the web app. User must be a Board Member.
       content:
         application/json:
           schema:
-            $ref: "../schemas/index.yaml#/Error"
+            $ref: "#/components/schemas/Error"
     500:
       description: Unexpected error
       content:
         application/json:
           schema:
-            $ref: "../schemas/index.yaml#/Error"
+            $ref: "#/components/schemas/Error"
 delete:
   parameters:
   - name: eventId
@@ -69,7 +69,7 @@ delete:
     in: path
     required: true
     schema:
-      $ref: "../schemas/index.yaml#EventId"
+      $ref: "#/components/schemas/EventId"
   summary: Delete an Event corresponding to `eventId`.
   responses:
     '200':
@@ -79,16 +79,16 @@ delete:
       content:
         application/json:
           schema:
-            $ref: "../schemas/index.yaml#/Error"
+            $ref: "#/components/schemas/Error"
     403:
-      description: User is not authorized via OAuth2 in the web app. User must be an Officer.
+      description: User is not authorized via OAuth2 in the web app. User must be a board member.
       content:
         application/json:
           schema:
-            $ref: "../schemas/index.yaml#/Error"
+            $ref: "#/components/schemas/Error"
     500:
       description: Unexpected error
       content:
         application/json:
           schema:
-            $ref: "../schemas/index.yaml#/Error"
+            $ref: "#/components/schemas/Error"

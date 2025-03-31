@@ -5,7 +5,7 @@ get:
     in: path
     required: true
     schema:
-      $ref: '../schemas/index.yaml#/User'
+      $ref: '#/components/schemas/UserId'
   summary: Read a User.
   responses:
     '200':
@@ -13,19 +13,19 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/index.yaml#/User'
+            $ref: '#/components/schemas/User'
     404:
       description: No user found for the provided `userId`.
       content:
         application/json:
           schema:
-            $ref: '../schemas/index.yaml#/Error'
+            $ref: '#/components/schemas/Error'
     500:
       description: Unexpected error
       content:
         application/json:
           schema:
-            $ref: '../schemas/index.yaml#/Error'
+            $ref: '#/components/schemas/Error'
 patch:
   parameters:
   - name: userId
@@ -33,14 +33,14 @@ patch:
     in: path
     required: true
     schema:
-      $ref: '../schemas/index.yaml#/User'
+      $ref: '#/components/schemas/UserId'
   summary: Update a user corresponding to `userId` based on the fields provided.
   requestBody:
     description: User fields to update.
     content:
       application/json:
         schema:
-          $ref: '../schemas/index.yaml#/User'
+          $ref: '#/components/schemas/User'
   responses:
     '200':
       description: User has been updated with the provided fields.
@@ -53,7 +53,7 @@ patch:
       content:
         application/json:
           schema:
-            $ref: '../schemas/index.yaml#/Error'
+            $ref: '#/components/schemas/Error'
 delete:
   parameters:
   - name: userId
@@ -61,7 +61,7 @@ delete:
     in: path
     required: true
     schema:
-      $ref: '../schemas/index.yaml#/UserId'
+      $ref: '#/components/schemas/UserId'
   summary: Delete a user corresponding to `userId`.
   responses:
     '200':
@@ -75,4 +75,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: '../schemas/index.yaml#/Error'
+            $ref: '#/components/schemas/Error'

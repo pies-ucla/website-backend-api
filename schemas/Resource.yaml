@@ -17,12 +17,19 @@ properties:
   description:
     type: string
   deadline:
-    type: integer
+    type: string
+    format: date-time
   link:
     type: string
+    format: uri
+    description: Link to resource (if applicable).
   created_by:
     $ref: './UserId.yaml'
   created_time:
-    type: integer
+    type: string
+    format: date-time
+    description: Time of resource creation. Logic should automatically update this field when creating a resource.
   updated_time:
-    type: integer
+    type: string
+    format: date-time
+    description: Time of resource update. Logic should automatically update this field when updating a resource.

@@ -1,0 +1,10 @@
+type: string
+enum:
+  - president
+  - internal_vice_president
+  - external_vice_president
+  - secretary
+  - alumni_industry_relations
+  - activities_coordinator
+  - public_relations
+  - historian

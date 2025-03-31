@@ -13,7 +13,7 @@ get:
   - name: resource_type
     in: query
     schema:
-      $ref: "../schemas/index.yaml#/ResourceType"
+      $ref: "#/components/schemas/ResourceType"
     description: The type of resource to collect.
   summary: Read all resources.
   responses:
@@ -23,13 +23,13 @@ get:
         application/json:
           schema:
             type: list
-            $ref: "../schemas/index.yaml#/Resource"
+            $ref: "#/components/schemas/Resource"
     500:
       description: Unexpected error
       content:
         application/json:
           schema:
-            $ref: "../schemas/index.yaml#/Error"
+            $ref: "#/components/schemas/Error"
 post:
   summary: Create a Resource.
   requestBody:
@@ -37,17 +37,17 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../schemas/index.yaml#/Resource"
+          $ref: "#/components/schemas/resource"
   responses:
     '201':
       description: Resource has been created. No response body provided.
     401:
       description: User is not authenticated via OAuth2 in the web app.
     403:
-      description: User is not authorized via OAuth2 in the web app. User must be an Officer.
+      description: User is not authorized via OAuth2 in the web app. User must be a board member.
     500:
       description: Unexpected error
       content:
         application/json:
           schema:
-            $ref: "../schemas/index.yaml#/Error"
+            $ref: "#/components/schemas/Error"

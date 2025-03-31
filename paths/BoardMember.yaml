@@ -1,13 +1,83 @@
 get:
-  summary: Read all PIES board members.
+  parameters:
+  - name: userId
+    description: The unique identifier of the User.
+    in: path
+    required: true
+    schema:
+      $ref: '#/components/schemas/userId'
+  summary: Read a Board Member.
   responses:
     '200':
-      description: List corresponding to all PIES board members.
+      description: The board member corresponding to the provided `userId`
       content:
         application/json:
           schema:
-            type: list
-            $ref: '#/components/schemas/Officer'
+            $ref: '#/components/schemas/BoardMember'
+    404:
+      description: No User found for the provided `userId`, or `userId` corresponds to a User who is not a board member.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    500:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+post:
+  parameters:
+  - name: userId
+    description: The unique identifier of the User.
+    in: path
+    required: true
+    schema:
+      $ref: '#/components/schemas/userId'
+  summary: Register a User corresponding to `userId` as a board member.
+  requestBody:
+    description: Required fields to create a board member.
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/BoardMember'
+  responses:
+    '201':
+      description: Post has been created. No response body provided.
+    401:
+      description: User is not authenticated via OAuth2 in the web app.
+    403:
+      description: User is not authorized via OAuth2 in the web app. User must be a board member.
+    404:
+      description: No User found corresponding to `userId`.
+    500:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+patch:
+  parameters:
+  - name: userId
+    description: The unique identifier of the User.
+    in: path
+    required: true
+    schema:
+      $ref: '#/components/schemas/userId'
+  summary: Update a board member corresponding to `userId` based on the fields provided.
+  requestBody:
+    description: Board member fields to update.
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/BoardMember'
+  responses:
+    '200':
+      description: Event has been updated with the provided fields.
+    401:
+      description: User is not authenticated via OAuth2 in the web app.
+    403:
+      description: User is not authorized via OAuth2 in the web app. User must be a board member.
     500:
       description: Unexpected error
       content:

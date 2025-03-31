@@ -14,9 +14,9 @@ paths:
   /events/{eventId}:
     $ref: 'paths/Event.yaml'
   /board:
-    $ref: 'paths/BoardMember.yaml'
-  /board/{userId}:
     $ref: 'paths/BoardMembers.yaml'
+  /board/{userId}:
+    $ref: 'paths/BoardMember.yaml'
   /alumni:
     $ref: 'paths/Alumnus.yaml'
   /alumni/{alumniId}:
@@ -32,7 +32,7 @@ components:
   securitySchemes:
     OAuth2_PIES_Website:
       type: oauth2
-      description: This API uses OAuth2.
+      description: This API uses Google OAuth2 to perform authentication.
       flows:
         authorizationCode:
           authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth # Full URL with all queries/parameters in "PIES Website: Authentication Flow" design doc
