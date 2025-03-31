@@ -13,10 +13,16 @@ paths:
     $ref: 'paths/Events.yaml'
   /events/{eventId}:
     $ref: 'paths/Event.yaml'
+  /events/{eventId}/picture:
+    $ref: 'paths/EventPicture.yaml'
   /board:
     $ref: 'paths/BoardMembers.yaml'
   /board/{userId}:
     $ref: 'paths/BoardMember.yaml'
+  /board/{userId}/picture:
+    $ref: 'paths/BoardMemberPicture.yaml'
+  /board/{userId}/resume:
+    $ref: 'paths/BoardMemberResume.yaml'
   /alumni:
     $ref: 'paths/Alumnus.yaml'
   /alumni/{alumniId}:
@@ -25,6 +31,8 @@ paths:
     $ref: 'paths/Resources.yaml'
   /resources/{resourceId}:
     $ref: 'paths/Resource.yaml'
+  /resources/{resourceId}/picture:
+    $ref: 'paths/resourcePicture.yaml'
   
 components:
   schemas:
